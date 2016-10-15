@@ -310,7 +310,7 @@ public class RecognizeActivity extends ActionBarActivity {
                     // Covert bitmap to a mutable bitmap by copying it
                     Bitmap bitmapCopy = mBitmap.copy(Bitmap.Config.ARGB_8888, true);
                     Canvas faceCanvas = new Canvas(bitmapCopy);
-                    faceCanvas.drawBitmap(mBitmap, 0, 0, null);
+                    faceCanvas.drawBitmap(bitmapCopy, 0, 0, null);
                     Paint paint = new Paint(Paint.ANTI_ALIAS_FLAG);
                     paint.setStyle(Paint.Style.STROKE);
                     paint.setStrokeWidth(5);
@@ -335,7 +335,7 @@ public class RecognizeActivity extends ActionBarActivity {
                         count++;
                     }
                     ImageView imageView = (ImageView) findViewById(R.id.selectedImage);
-                    imageView.setImageDrawable(new BitmapDrawable(getResources(), mBitmap));
+                    imageView.setImageDrawable(new BitmapDrawable(getResources(), bitmapCopy));
                 }
                 mEditText.setSelection(0);
             }
